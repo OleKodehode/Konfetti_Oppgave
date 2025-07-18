@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(250, 100%, 25%);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 99svw;
+  height: 99svh;
+}
+
+.confetti_button {
+  background-color: hsl(275, 100%, 60%);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: hsl(0, 100%, 95%);
+  font-size: 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  text-shadow: 2px 2px 4px black;
+}
+
+.confetti_button:hover {
+  box-shadow: 2px 2px 2px black;
+  transform: translateY(-2px) translateX(-2px);
+  transition: transform 0.1s ease-in;
+  animation: button_wiggle 0.75s linear infinite;
+}
+
+.confetti_wrapper_top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 20px;
+  background: var(--confetti_color, red);
+  opacity: 0.9;
+  animation: confetti_fall var(--fall_duration, 4s) linear infinite;
+}
+
+@keyframes confetti_fall {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes button_wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
