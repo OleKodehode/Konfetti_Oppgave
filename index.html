@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Konfetti Oppgave</title>
     <link rel="stylesheet" href="./style.css" />
-    <script src="./javascript.js"></script>
+    <script src="./script.js" async></script>
   </head>
   <body>
     <main>
-      <button class="confetti_button">🎉 CONFETTI 🎉</button>
-      <article class="confetti_wrapper_top"></article>
+      <button class="confetti_button" onclick="spawnConfetti()">
+        🎉 CONFETTI 🎉
+      </button>
+      <section class="confetti_wrapper" id="confetti_spawn"></section>
     </main>
   </body>
 </html>

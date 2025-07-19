@@ -37,7 +37,7 @@ main {
   animation: button_wiggle 0.75s linear infinite;
 }
 
-.confetti_wrapper_top {
+.confetti_wrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -47,7 +47,7 @@ main {
   overflow: hidden;
 }
 
-.confetti-piece {
+.confetti_piece {
   position: absolute;
   width: 10px;
   height: 20px;
