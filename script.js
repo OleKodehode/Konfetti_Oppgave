@@ -6,14 +6,21 @@ const buttonRect = button.getBoundingClientRect();
 function spawnConfetti() {
   const spawnFromButton = Math.random() > 0.5;
   const upwardsBoost = spawnFromButton
-    ? innerHeight * 0.4 + Math.random() * innerHeight * 0.05 // 90% of the window height +/- 5% - Button is in the middle of the screen
-    : innerHeight * 0.7 + Math.random() * innerHeight * 0.05; // 70% of the window height +/- 5%
+    ? innerHeight * 0.45 + Math.random() * innerHeight * 0.05 // 95% of the window height +/- 5% - Button is in the middle of the screen
+    : innerHeight * 0.95 + Math.random() * innerHeight * 0.05; // 95% of the window height +/- 5%
+  const spinAmountX = Math.floor(Math.random() * 9 + 2);
+  const spinAmountY = Math.floor(Math.random() * 9 + 2);
 
   for (let i = 0; i < confetti_amount; i++) {
     const confetti = document.createElement("article");
     confetti.classList.add("confetti_piece");
     confetti.style.setProperty("--fall_duration", `${Math.random() * 3 + 3}s`);
     confetti.style.setProperty("--confetti_color", getRandomColor());
+    confetti.style.setProperty("--x_rotate", `${Math.random() * 360}deg`);
+    confetti.style.setProperty("--y_rotate", `${Math.random() * 360}deg`);
+    confetti.style.setProperty("--spin_amount_x", `${spinAmountX}`);
+    confetti.style.setProperty("--spin_amount_y", `${spinAmountY}`);
+    confetti.style.zIndex = 0;
     confetti.addEventListener("animationend", () => {
       confetti.remove();
     });

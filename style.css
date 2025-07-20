@@ -38,13 +38,14 @@ main {
 }
 
 .confetti_wrapper {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
   overflow: hidden;
+  perspective: 800px; /* Depth for rotateX/rotateY*/
 }
 
 .confetti_piece {
@@ -70,14 +71,17 @@ main {
 
 @keyframes confetti_burst {
   0% {
-    transform: translate(0, 0) rotate(0deg);
+    transform: translate(0, 0) rotate(0deg) rotateX(0deg) rotateY(0deg);
     opacity: 1;
   }
   15% {
-    transform: translate(var(--x_movement), var(--y_movement)) rotate(120deg);
+    transform: translate(var(--x_movement), var(--y_movement)) rotate(120deg)
+      rotateX(var(--x_rotate)) rotateY(var(--y_rotate));
   }
   100% {
-    transform: translate(var(--x_movement), 100svh) rotate(360deg);
+    transform: translate(var(--x_movement), 100svh) rotate(360deg)
+      rotateX(calc(var(--spin_amount_x) * 360deg))
+      rotateY(calc(var(--spin_amount_y) * 360deg));
     opacity: 0.8;
   }
 }
