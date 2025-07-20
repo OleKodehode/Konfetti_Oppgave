@@ -52,8 +52,8 @@ main {
   width: 10px;
   height: 20px;
   background: var(--confetti_color, red);
-  opacity: 0.9;
-  animation: confetti_fall var(--fall_duration, 4s) linear infinite;
+  opacity: 0;
+  animation: confetti_fall var(--fall_duration, 1s) linear;
 }
 
 @keyframes confetti_fall {
